@@ -13,6 +13,11 @@ const getUser = async (userId) => {
     return user;
 };
 
+const validateUser = async (user, password) => {
+    const userFound = await userProvider.validateUser({ user, password });
+    return userFound;
+  };
+
 const createTicket = async (userId, ticket) =>{
     const user = await userProvider.getUser(userId);
     if (user) {     
@@ -22,4 +27,4 @@ const createTicket = async (userId, ticket) =>{
     return null;
 };
 
-module.exports = {createUser, getUser, createTicket}
+module.exports = {createUser, getUser, createTicket, validateUser}

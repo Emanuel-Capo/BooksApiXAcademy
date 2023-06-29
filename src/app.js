@@ -1,6 +1,6 @@
 const express = require("express");
 
-const {bookRouter, userRouter} = require("./routes");
+const {bookRouter, userRouter, authRouter} = require("./routes");
 const loggingMdw = require("./middlewares/logging");
 const {initializeDB} = require("./config/db-config");
 
@@ -14,6 +14,7 @@ app.use(loggingMdw)
 
 app.use("/book", bookRouter);
 app.use("/user", userRouter);
+app.use("/login", authRouter);
 
 const errorHandler = (err, req, res, next)=>{
 

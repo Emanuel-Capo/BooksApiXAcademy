@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const {bookController} = require("../controllers")
+const {bookController} = require("../controllers");
+const { jwtValidMdw } = require("../middlewares/authMdw");
 
-router.get("/:bookId", bookController.getBookController)
+router.get("/:bookId", jwtValidMdw, bookController.getBookController)
 
 router.put("/:bookId", bookController.putBookController)
 
