@@ -19,6 +19,8 @@ passport.use(
 
 const jwtValidMdw = passport.authenticate("jwt",{session: false})
 
+
+// Middleware que comprueba que el rol sea Admin
 const userIsAdminMdw = (req, res, next)=>{
     return passport.authenticate("jwt", {session: false},(err, user, info)=>{
             if (err) {
@@ -34,6 +36,7 @@ const userIsAdminMdw = (req, res, next)=>{
     )(req, res, next);
 }
 
+// Middleware utilizado al editar usuario, que comprueba que el token corresponda al user enviado por params
 const userIsCorrect = (req, res, next)=>{
     return passport.authenticate("jwt", {session: false},(err, user, info)=>{
             if (err) {

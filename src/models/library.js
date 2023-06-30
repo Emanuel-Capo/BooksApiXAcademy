@@ -22,7 +22,9 @@ const Library = sequelize.define("Libraries",{
         allowNull: false
     }
 }, {paranoid: true})
+//Uso de paranoid para borrado lógico
 
+//Relaciones
 Book.belongsTo(Library);
 Library.hasMany(Book);
 

@@ -30,6 +30,7 @@ const createUser = async (user) => {
   }
 };
 
+// Se puede editar enviando de todos hasta ningún campo
 const editUser = async (userId, user) => {
   const { name, lastname, email, password } = user;
   try {
@@ -54,6 +55,7 @@ const editUser = async (userId, user) => {
   }
 };
 
+// Devuelve el usuario borrado con el campo deletedAt != null
 const deleteUser = async (userId) => {
   try {
       await User.destroy({ where: { id: userId } });
@@ -65,6 +67,7 @@ const deleteUser = async (userId) => {
   }
 };
 
+// Validación para autenticar al usuario
 const validateUser = async (options) => {
   try {
     const user = await User.findAll({

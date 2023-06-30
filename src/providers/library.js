@@ -36,6 +36,7 @@ const createLibrary = async (library) => {
     }
 };
 
+// Se puede editar enviando de todos hasta ningún campo
 const editLibrary = async (libraryId, library) => {
     const { name, location, phone } = library;
     try {
@@ -59,6 +60,7 @@ const editLibrary = async (libraryId, library) => {
     }
 };
 
+// Devuelve la librería borrado con el campo deletedAt != null
 const deleteLibrary = async (libraryId) => {
     try {
         await Library.destroy({ where: { id: libraryId } });

@@ -35,6 +35,7 @@ const createBook = async (book, libraryId) => {
     }
 }
 
+// Se puede editar enviando de todos hasta ningún campo
 const editBook = async (bookId, book) => {
     const { isbn, title, author, year } = book;
     try {
@@ -59,6 +60,7 @@ const editBook = async (bookId, book) => {
     }
 }
 
+// Devuelve el libro borrado con el campo deletedAt != null
 const deleteBook = async (bookId) => {
     try {
         await Book.destroy({ where: { id: bookId } });

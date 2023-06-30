@@ -25,5 +25,6 @@ const Book = sequelize.define("Books",{
         allowNull: false
     }
 }, {paranoid: true})
+//Uso de paranoid para borrado lógico
 
 module.exports= Book

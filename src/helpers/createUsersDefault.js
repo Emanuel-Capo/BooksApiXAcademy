@@ -1,5 +1,6 @@
 const { User } = require("../models")
 
+// Crea un admin por default
 const defaultAdmin = async () => {
     try {
         await User.findOrCreate({

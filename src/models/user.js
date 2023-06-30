@@ -32,6 +32,7 @@ const User = sequelize.define("Users",{
         allowNull: false
     }
 }, {paranoid: true})
+//Uso de paranoid para borrado lógico
 
 
 module.exports= User
