@@ -1,7 +1,6 @@
-**API REST DE LIBRERÍAS Y LIBROS**</br>
-Ruta base (local): localhost:8090/</br></br>
+<h1 align = "center"> API REST DE LIBRERÍAS Y LIBROS </h1>
 
-**USUARIOS** (Ruta: localhost:8090/user/)</br>
+<h3 align = "center">USUARIOS (Ruta: localhost:8090/user/)</h3>
 
 *Login:*
 >Método: POST</br>
@@ -66,7 +65,7 @@ Auth: Sólo el usuario con rol Admin puede borrar usuarios
 </br></br>
 
 
-**LIBRERÍAS** (Ruta: localhost:8090/library/)</br>
+<h3 align = "center">LIBRERÍAS (Ruta: localhost:8090/library/)</h3>
 
 *Obtener una librería por id:*
 >Método: GET</br>
@@ -124,7 +123,7 @@ Auth: Sólo usuarios autenticados pueden borrar librerías</br>
 </br></br>
 
 
-**LIBROS** (Ruta: localhost:8090/book/)</br>
+<h3 align = "center">LIBROS (Ruta: localhost:8090/book/)</h3>
 
 *Obtener un libro por id:*
 >Método: GET</br>
