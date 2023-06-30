@@ -10,7 +10,8 @@ const Book = sequelize.define("Books",{
     },
     isbn:{
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     title: {
         type: DataTypes.STRING,
@@ -23,11 +24,7 @@ const Book = sequelize.define("Books",{
     year: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    library:{
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
+    }
 }, {paranoid: true})
 
 module.exports= Book

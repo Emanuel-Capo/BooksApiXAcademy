@@ -1,4 +1,4 @@
-const { bookProvider } = require("../providers");
+const { bookProvider, libraryProvider } = require("../providers");
 
 
 const getBook = async (bookId)=>{
@@ -11,9 +11,13 @@ const getAllBooks = async ()=>{
     return allBooks;
 }
 
-const createBook = async (book)=>{
-    const newBook = await bookProvider.createBook(book);
-    return newBook
+const createBook = async (book, libraryId)=>{
+    const library = await libraryProvider.getLibrary(libraryId);
+    if (library) {
+        const newBook = await bookProvider.createBook(book, libraryId);
+        return newBook;        
+    }
+    return null;
 }
 
 const editBook = async (bookId, book)=>{

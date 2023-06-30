@@ -5,7 +5,7 @@ const { jwtValidMdw } = require("../middlewares/authMdw");
 
 router.get("/:bookId", bookController.getBook)
 router.get("/", bookController.getAllBooks)
-router.post("/", jwtValidMdw, bookController.createBook)
+router.post("/:libraryId", jwtValidMdw, bookController.createBook)
 router.put("/:bookId", jwtValidMdw, bookController.editBook)
 router.delete("/:bookId", jwtValidMdw, bookController.deleteBook)
 

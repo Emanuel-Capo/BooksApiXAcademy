@@ -32,17 +32,47 @@ const getUser = async (req, res)=>{
     }
 }
 
-const createTicket = async (req, res) =>{
+const getAllUsers = async (req, res) => {
     try {
-        const newTicket = await userService.createTicket(req.params.userId, req.body);
-        res.json(newTicket)
+        const users = await userService.getAllUsers();
+        res.json(users);        
     } catch (error) {
         res.status(500).json({
-            action: "CreateTicket",
+            action: "GetAllUsers",
+            error : error.message
+        });
+    }
+}
+
+const editUser = async (req, res)=>{
+    try {
+        const editedUser = await userService.editUser(req.params.userId, req.body)
+        if (!editedUser) {
+            res.status(404).json({
+                action: "EditUser",
+                error : "User not found"
+            });            
+        }else{
+            res.json(editedUser);
+        }
+    } catch (error) {
+        res.status(500).json({
+            action: "EditUser",
             error : error.message
         })
     }
 }
 
+const deleteUser = async (req,res)=>{
+    try {
+        const deletedUser = await userService.deleteUser(req.params.userId)
+        res.json(deletedUser)
+    } catch (error) {
+        res.status(500).json({
+            action: "DeleteUser",
+            error : error.message
+        })
+    }
+} 
 
-module.exports = {createUser, getUser, createTicket}
+module.exports = {createUser, getUser, getAllUsers, editUser, deleteUser}

@@ -22,16 +22,16 @@ const jwtValidMdw = passport.authenticate("jwt",{session: false})
 const userIsAdminMdw = (req, res, next)=>{
     return passport.authenticate("jwt", {session: false},(err, user, info)=>{
             if (err) {
-                console.error(err);
+                console.log(err);
                 return next(err)
             }
-            if (user.role == "admin") {
+            if (user.role == "Admin") {
                 req.user = user;
                 return next();
             }
             res.status(401).json({error: "user not admin"})
         }
-    ),(req, res, next);
+    )(req, res, next);
 }
 
 module.exports = {SERVER_SECRET, jwtValidMdw, userIsAdminMdw};

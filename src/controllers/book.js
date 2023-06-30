@@ -32,10 +32,17 @@ const getAllBooks = async (req, res) => {
     }
 }
 
-const createBook = async (req,res)=>{
+const createBook = async (req,res)=>{       
     try {
-        const newBook = await bookService.createBook(req.body);
-        res.json(newBook)
+        const newBook = await bookService.createBook(req.body, req.params.libraryId);
+        if (!newBook) {
+            res.status(404).json({
+                action: "CreateBook",
+                error : "Library not found"
+            })
+        }else{
+            res.json(newBook)
+        }
     } catch (error) {
         res.status(500).json({
             action: "CreateBook",
