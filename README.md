@@ -1,4 +1,6 @@
 <h1 align = "center"> API REST DE LIBRERÍAS Y LIBROS </h1>
+<p>Comando para correr server de forma local: <b>npm run start:dev</b></p>
+</br>
 
 <h3 align = "center">USUARIOS (Ruta: localhost:8090/user/)</h3>
 
