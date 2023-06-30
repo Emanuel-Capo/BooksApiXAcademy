@@ -1,1 +1,0 @@
-// funciones que se aplican en los controladores

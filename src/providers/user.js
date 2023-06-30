@@ -42,11 +42,11 @@ const getUserByCriteria = async (options) => {
       const user = await User.findAll({
         where: {
           email: options.user,
-          password: options.pass,
+          password: options.password,
         },
       });
       if (user.length !== 0) {
-        return user;
+        return user[0];
       }
       return false;
     } catch (err) {

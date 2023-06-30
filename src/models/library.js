@@ -21,7 +21,7 @@ const Library = sequelize.define("Libraries",{
         type: DataTypes.STRING,
         allowNull: false
     }
-})
+}, {paranoid: true})
 
 Book.belongsTo(Library);
 Library.hasMany(Book);

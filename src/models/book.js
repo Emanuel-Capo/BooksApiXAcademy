@@ -28,6 +28,6 @@ const Book = sequelize.define("Books",{
         type: DataTypes.INTEGER,
         allowNull: false
     },
-})
+}, {paranoid: true})
 
 module.exports= Book
