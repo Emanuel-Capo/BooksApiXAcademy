@@ -34,4 +34,21 @@ const userIsAdminMdw = (req, res, next)=>{
     )(req, res, next);
 }
 
-module.exports = {SERVER_SECRET, jwtValidMdw, userIsAdminMdw};
+const userIsCorrect = (req, res, next)=>{
+    return passport.authenticate("jwt", {session: false},(err, user, info)=>{
+            if (err) {
+                console.log(err);
+                return next(err)
+            }
+            console.log("USER ",user);
+            console.log("PARAMS ",req.params);
+            if (user.id == req.params.userId) {
+                req.user = user;
+                return next();
+            }
+            res.status(401).json({error: "user is not allowed to edit this data"})
+        }
+    )(req, res, next);
+}
+
+module.exports = {SERVER_SECRET, jwtValidMdw, userIsAdminMdw, userIsCorrect};

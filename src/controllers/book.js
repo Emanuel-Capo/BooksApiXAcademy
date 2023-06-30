@@ -1,6 +1,5 @@
 const { bookService } = require("../services");
 
-
 const getBook = async (req, res) => {
     try {
         const book = await bookService.getBook(req.params.bookId);
